@@ -1,8 +1,8 @@
-# NotaCerta
+# Redana
 > Correção de redação do ENEM com feedback por competência, nota estimada e plano de evolução.
 
 ## Sobre
-A NotaCerta é uma plataforma brasileira de correção de redações do ENEM. Você envia seu texto, recebe nota estimada por competência (C1 a C5) e um plano de melhoria para subir pontos na próxima redação.
+A Redana é uma plataforma brasileira de correção de redações do ENEM. Você envia seu texto, recebe nota estimada por competência (C1 a C5) e um plano de melhoria para subir pontos na próxima redação.
 
 ## Informações principais
 - **Preço:** A partir de R$ 9,90/mês. Plano Free com 5 correções grátis, sem cartão.
@@ -12,6 +12,6 @@ A NotaCerta é uma plataforma brasileira de correção de redações do ENEM. Vo
 - **Diferencial:** Diagnóstico claro em vez de correção genérica. Cada feedback indica o próximo passo de melhoria.
 
 ## Links
-- Site: https://notacerta.com.br
-- Preços: https://notacerta.com.br/#precos
-- FAQ: https://notacerta.com.br/#faq
+- Site: https://redana.com.br
+- Preços: https://redana.com.br/#precos
+- FAQ: https://redana.com.br/#faq

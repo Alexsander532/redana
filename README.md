@@ -1,4 +1,4 @@
-# NotaCerta — Landing Page
+# Redana — Landing Page
 
 Landing page minimalista para SaaS de correção de redação do ENEM.
 
@@ -22,7 +22,7 @@ Landing page minimalista para SaaS de correção de redação do ENEM.
 ## Rodar local
 
 ```bash
-cd notacerta
+cd redana
 npm install
 npm run dev
 ```

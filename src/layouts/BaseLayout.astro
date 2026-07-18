@@ -9,8 +9,8 @@ interface Props {
 const {
   title,
   description,
-  canonical = 'https://notacerta.com.br/',
-  ogImage = 'https://notacerta.com.br/og-image.png',
+  canonical = 'https://redana.com.br/',
+  ogImage = 'https://redana.com.br/og-image.png',
 } = Astro.props;
 
 const jsonLd = {
@@ -18,10 +18,10 @@ const jsonLd = {
   '@graph': [
     {
       '@type': 'Organization',
-      '@id': 'https://notacerta.com.br/#organization',
-      name: 'NotaCerta',
-      url: 'https://notacerta.com.br/',
-      logo: 'https://notacerta.com.br/favicon.svg',
+      '@id': 'https://redana.com.br/#organization',
+      name: 'Redana',
+      url: 'https://redana.com.br/',
+      logo: 'https://redana.com.br/favicon.svg',
       description:
         'Plataforma de correção de redação do ENEM com feedback claro, critérios oficiais e evolução nota a nota.',
       areaServed: 'BR',
@@ -29,15 +29,15 @@ const jsonLd = {
     },
     {
       '@type': 'WebSite',
-      '@id': 'https://notacerta.com.br/#website',
-      url: 'https://notacerta.com.br/',
-      name: 'NotaCerta',
+      '@id': 'https://redana.com.br/#website',
+      url: 'https://redana.com.br/',
+      name: 'Redana',
       description,
       inLanguage: 'pt-BR',
-      publisher: { '@id': 'https://notacerta.com.br/#organization' },
+      publisher: { '@id': 'https://redana.com.br/#organization' },
       potentialAction: {
         '@type': 'SearchAction',
-        target: 'https://notacerta.com.br/?q={search_term_string}',
+        target: 'https://redana.com.br/?q={search_term_string}',
         'query-input': 'required name=search_term_string',
       },
     },
@@ -47,13 +47,13 @@ const jsonLd = {
       url: canonical,
       name: title,
       description,
-      isPartOf: { '@id': 'https://notacerta.com.br/#website' },
-      about: { '@id': 'https://notacerta.com.br/#organization' },
+      isPartOf: { '@id': 'https://redana.com.br/#website' },
+      about: { '@id': 'https://redana.com.br/#organization' },
       inLanguage: 'pt-BR',
     },
     {
       '@type': 'SoftwareApplication',
-      name: 'NotaCerta',
+      name: 'Redana',
       applicationCategory: 'EducationalApplication',
       operatingSystem: 'Web',
       offers: {
@@ -110,7 +110,7 @@ const jsonLd = {
       name="keywords"
       content="correção de redação ENEM, corrigir redação ENEM online, feedback redação ENEM, nota redação ENEM, competências ENEM, treinar redação ENEM"
     />
-    <meta name="author" content="NotaCerta" />
+    <meta name="author" content="Redana" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="googlebot" content="index, follow" />
     <meta name="theme-color" content="#0f172a" />
@@ -119,11 +119,11 @@ const jsonLd = {
     <link rel="alternate" hreflang="x-default" href={canonical} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-    <link rel="preconnect" href="https://notacerta.com.br" />
+    <link rel="preconnect" href="https://redana.com.br" />
 
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pt_BR" />
-    <meta property="og:site_name" content="NotaCerta" />
+    <meta property="og:site_name" content="Redana" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
