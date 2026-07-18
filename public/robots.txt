@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+User-agent: GPTBot
+Disallow: /api/
+Allow: /
+
+User-agent: ClaudeBot
+Disallow: /api/
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://notacerta.com.br/sitemap.xml

@@ -1,0 +1,124 @@
+---
+const testimonials = [
+  { quote: 'Parei de "achar" que estava melhorando. Depois de 3 correções, vi exatamente onde perdia pontos e subi de 720 para 880.', name: 'Marina S.', role: 'Candidata ENEM · SP', initials: 'MS' },
+  { quote: 'O feedback é direto e útil. Não é texto genérico. Me mostrou o erro de proposta de intervenção e o que escrever diferente.', name: 'Lucas A.', role: '3º ano · MG', initials: 'LA' },
+  { quote: 'Eu travava por medo de escrever errado. Com as 5 grátis testei, confiei, e o plano mensal virou rotina de treino.', name: 'Beatriz R.', role: 'Concurseira · RJ', initials: 'BR' },
+  { quote: 'Achei que precisaria pagar caro num curso de redação. Com R$ 9,90/mês tenho o retorno que faltava. Nota 860 na última simulação.', name: 'Pedro H.', role: 'ENEM 2025 · RS', initials: 'PH' },
+  { quote: 'O mais difícil era saber se estava indo bem. Agora acompanho minha evolução por competência. Em 2 meses passei de 640 pra 800.', name: 'Ana Clara M.', role: 'Candidata Medicina · PE', initials: 'AC' },
+  { quote: 'O plano anual é um absurdo de barato pelo que entrega. Me ajudou a treinar toda semana sem furar o orçamento.', name: 'Rafael T.', role: 'ENEM + Vestibulares · BA', initials: 'RT' },
+  { quote: 'Eu não entendia a C5. Com o feedback claro sobre os 5 elementos, minha proposta de intervenção saiu do papel. Melhor investimento.', name: 'Juliana P.', role: 'Cursinho online · CE', initials: 'JP' },
+  { quote: 'Testei o Free, subi 100 pontos na segunda redação. Contratei o anual e hoje a redação é o que me tira da média, não o que me puxa pra baixo.', name: 'Gabriel F.', role: 'ENEM 2024 · GO', initials: 'GF' },
+];
+---
+
+<div class="carousel-wrap" role="region" aria-label="Depoimentos de estudantes" tabindex="0">
+  <div class="carousel-track" id="carousel-track">
+    {testimonials.map((t) => (
+      <figure class="carousel-card">
+        <p>"{t.quote}"</p>
+        <figcaption class="person">
+          <div class="avatar" aria-hidden="true">{t.initials}</div>
+          <div><strong>{t.name}</strong><span>{t.role}</span></div>
+        </figcaption>
+      </figure>
+    ))}
+  </div>
+</div>
+
+<div class="carousel-nav">
+  <button class="carousel-arr" id="prev-btn" aria-label="Anterior" type="button">‹</button>
+  <div class="carousel-dots" id="carousel-dots" role="tablist">
+    {testimonials.map((_, i) => (
+      <button class:list={['dot', { active: i === 0 }]} role="tab" aria-label={`Depoimento ${i + 1}`} data-index={i} />
+    ))}
+  </div>
+  <button class="carousel-arr" id="next-btn" aria-label="Próximo" type="button">›</button>
+</div>
+
+<style>
+  .carousel-wrap { overflow: hidden; }
+  .carousel-track {
+    display: flex; gap: 1rem; overflow-x: auto;
+    scrollbar-width: none; -ms-overflow-style: none;
+    padding: 0.25rem 0 0.5rem; cursor: grab;
+    scroll-snap-type: x mandatory;
+  }
+  .carousel-track::-webkit-scrollbar { display: none; }
+  .carousel-card {
+    flex: 0 0 clamp(290px, 32vw, 370px); user-select: none; scroll-snap-align: start;
+    background: var(--surface, #fff); border: 1px solid var(--line, #e7e5e4);
+    border-radius: 20px; box-shadow: 0 18px 50px rgba(15,23,42,0.08); padding: 1.4rem;
+  }
+  .carousel-card p { color: var(--ink-soft, #334155); margin: 0 0 1.2rem; }
+  .person { display: flex; align-items: center; gap: 0.8rem; }
+  .avatar { width: 2.5rem; height: 2.5rem; border-radius: 50%; display: grid; place-items: center; background: var(--brand, #0f172a); color: #fff; font-weight: 800; font-size: 0.85rem; flex-shrink: 0; }
+  .person strong { display: block; font-size: 0.95rem; }
+  .person span { color: var(--muted, #64748b); font-size: 0.85rem; }
+  .carousel-nav { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 1rem; }
+  .carousel-arr { width: 2.5rem; height: 2.5rem; border-radius: 50%; border: 1px solid var(--line, #e7e5e4); background: var(--surface, #fff); color: var(--ink, #0f172a); font-size: 1.2rem; cursor: pointer; display: grid; place-items: center; transition: all 0.18s ease; box-shadow: 0 4px 12px rgba(15,23,42,0.05); }
+  .carousel-arr:hover { background: var(--brand, #0f172a); color: #fff; border-color: var(--brand, #0f172a); }
+  .carousel-dots { display: flex; align-items: center; gap: 0.45rem; }
+  .dot { width: 0.5rem; height: 0.5rem; border-radius: 50%; border: none; background: #cbd5e1; cursor: pointer; padding: 0; transition: all 0.25s ease; }
+  .dot.active { background: var(--brand, #0f172a); width: 1.35rem; border-radius: 999px; }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const track = document.getElementById('carousel-track');
+    const dots = document.querySelectorAll('#carousel-dots .dot');
+    const prev = document.getElementById('prev-btn');
+    const next = document.getElementById('next-btn');
+    const total = dots.length;
+    if (!track || total === 0) return;
+
+    let current = 0;
+    let timer = null;
+    let paused = false;
+
+    function w() {
+      const c = track.querySelector('.carousel-card');
+      return c ? c.offsetWidth + parseFloat(getComputedStyle(track).gap || 16) : 380;
+    }
+
+    function snap(i) { return ((i % total) + total) % total; }
+
+    function goTo(i, smooth) {
+      current = snap(i);
+      track.scrollTo({ left: current * w(), behavior: smooth !== false ? 'smooth' : 'auto' });
+      dots.forEach((d, j) => d.classList.toggle('active', j === current));
+    }
+
+    function schedule() {
+      clearTimeout(timer);
+      if (!paused) {
+        timer = setTimeout(() => {
+          goTo(current + 1);
+          schedule();
+        }, 2000);
+      }
+    }
+
+    function resume() {
+      paused = false;
+      schedule();
+    }
+
+    function pause(ms) {
+      paused = true;
+      clearTimeout(timer);
+      if (ms) {
+        setTimeout(resume, ms);
+      }
+    }
+
+    prev?.addEventListener('click', () => { goTo(current - 1); pause(2000); });
+    next?.addEventListener('click', () => { goTo(current + 1); pause(2000); });
+    dots.forEach((d, i) => d.addEventListener('click', () => { goTo(i); pause(2000); }));
+    track.addEventListener('mouseenter', () => pause(0));
+    track.addEventListener('mouseleave', resume);
+    track.addEventListener('touchstart', () => pause(0), { passive: true });
+    track.addEventListener('touchend', resume, { passive: true });
+
+    schedule();
+  });
+</script>

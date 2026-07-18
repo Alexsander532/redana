@@ -1,0 +1,17 @@
+# NotaCerta
+> Correção de redação do ENEM com feedback por competência, nota estimada e plano de evolução.
+
+## Sobre
+A NotaCerta é uma plataforma brasileira de correção de redações do ENEM. Você envia seu texto, recebe nota estimada por competência (C1 a C5) e um plano de melhoria para subir pontos na próxima redação.
+
+## Informações principais
+- **Preço:** A partir de R$ 9,90/mês. Plano Free com 5 correções grátis, sem cartão.
+- **Método:** Critérios oficiais do ENEM. Feedback organizado pelas 5 competências.
+- **Planos:** Free (5 correções), Mensal (R$ 9,90/mês), Trimestral (R$ 8,40/mês com 15% off), Anual (R$ 6,90/mês com 30% off).
+- **Público:** Estudantes do ENEM, vestibulandos, concurseiros e qualquer pessoa que quer treinar redação com método.
+- **Diferencial:** Diagnóstico claro em vez de correção genérica. Cada feedback indica o próximo passo de melhoria.
+
+## Links
+- Site: https://notacerta.com.br
+- Preços: https://notacerta.com.br/#precos
+- FAQ: https://notacerta.com.br/#faq

@@ -1,0 +1,458 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TestimonialCarousel from '../components/TestimonialCarousel.astro';
+import '../styles/global.css';
+
+const title = 'NotaCerta · Corrija sua Redação ENEM — Nota por Competência';
+const description =
+  'Corrija sua redação do ENEM com feedback por competência, nota estimada e plano de evolução. 5 correções grátis, sem cartão. A partir de R$ 9,90 por mês.';
+
+const values = [
+  {
+    icon: '01',
+    title: 'Nota por competência, não um número solto',
+    text: 'Você vê C1, C2, C3, C4 e C5 separadas — entende o que subiu, o que caiu e por quê. Igual ao espelho do ENEM.',
+  },
+  {
+    icon: '02',
+    title: 'Próximo passo, não só o diagnóstico',
+    text: 'Cada feedback termina com uma ação concreta: \"melhore a proposta de intervenção detalhando agente, ação, meio e finalidade.\"',
+  },
+  {
+    icon: '03',
+    title: 'Treino com método, não com esperança',
+    text: 'Enviar, corrigir e refazer vira um ciclo semanal previsível. A cada envio você mede sua evolução real, não sua intuição.',
+  },
+];
+
+const steps = [
+  {
+    num: '1',
+    title: 'Envie sua redação',
+    text: 'Cole o texto ou suba o arquivo. Em poucos minutos, a análise começa com os critérios oficiais do ENEM.',
+  },
+  {
+    num: '2',
+    title: 'Receba a nota por competência',
+    text: 'Veja a estimativa de nota e o desempenho em C1 a C5 — com clareza, sem enrolação.',
+  },
+  {
+    num: '3',
+    title: 'Aplique e evolua',
+    text: 'Use o plano de melhoria na próxima redação. Cada envio vira progresso mensurável.',
+  },
+];
+
+// Testimonials agora vivem dentro do componente TestimonialCarousel
+
+const plans = [
+  {
+    name: 'Anual',
+    price: 'R$ 6,90',
+    period: '/mês',
+    daily: 'R$ 0,23/dia',
+    compare: 'De <s>R$ 118,80</s> por <strong>R$ 82,80</strong> no ano. Menos que um café por dia.',
+    save: '30% off — melhor custo',
+    cta: 'Garantir desconto de 30%',
+    featured: true,
+    badge: 'Mais escolhido',
+    features: [
+      'Tudo do plano Mensal',
+      '12 meses de evolução contínua',
+      'Menor custo por correção',
+      'Economia de 30% vs mensal',
+    ],
+  },
+  {
+    name: 'Trimestral',
+    price: 'R$ 8,40',
+    period: '/mês',
+    daily: '',
+    compare: 'De <s>R$ 29,70</s> por <strong>R$ 25,20</strong> no trimestre.',
+    save: 'Economize 15%',
+    cta: 'Quero com 15% off',
+    featured: false,
+    badge: null,
+    features: [
+      'Tudo do plano Mensal',
+      '3 meses de treino contínuo',
+      'Ideal para a reta final',
+      'Economia de 15% vs mensal',
+    ],
+  },
+  {
+    name: 'Mensal',
+    price: 'R$ 9,90',
+    period: '/mês',
+    daily: '',
+    compare: 'Flexível: assine agora e cancele quando quiser, sem multa.',
+    save: null,
+    cta: 'Assinar mensal',
+    featured: false,
+    badge: null,
+    features: [
+      'Correções ilimitadas',
+      'Feedback completo por competência',
+      'Histórico de evolução',
+      'Cancele a qualquer momento',
+    ],
+  },
+  {
+    name: 'Free',
+    price: 'Grátis',
+    period: '',
+    daily: '',
+    compare: 'Comece agora, sem cartão e sem prazo.',
+    save: null,
+    cta: 'Testar de graça',
+    featured: false,
+    badge: null,
+    features: [
+      '5 correções gratuitas',
+      'Nota estimada por competência',
+      'Feedback inicial de melhoria',
+      'Sem cadastro de cartão',
+    ],
+  },
+];
+
+const faqs = [
+  {
+    q: 'A correção segue os critérios oficiais do ENEM?',
+    a: 'Sim. Organizamos o feedback pelas 5 competências oficiais, com nota estimada e pontos de melhoria em cada uma — para você treinar com o mesmo mapa mental da prova.',
+  },
+  {
+    q: 'Quanto tempo leva para receber o feedback?',
+    a: 'Na maioria dos casos, em minutos. A ideia é manter seu ritmo de estudo sem esperar dias por uma correção.',
+  },
+  {
+    q: 'O plano Free realmente tem 5 redações grátis?',
+    a: 'Sim. São 5 correções gratuitas para você sentir o valor antes de assinar. Sem cartão para começar.',
+  },
+  {
+    q: 'Qual plano faz mais sentido para mim?',
+    a: 'Se quer testar: Free. Se quer flexibilidade: Mensal. Se quer compromisso de curto prazo com desconto: Trimestral. Se quer o melhor custo-benefício e constância: Anual.',
+  },
+  {
+    q: 'E se eu não gostar? Tem garantia?',
+    a: 'Tem as 5 correções grátis para você testar tudo sem compromisso. Nos planos pagos, você cancela a qualquer momento, sem multa. A ideia é que o método faça sentido para você — se não fizer, é só cancelar.',
+  },
+  {
+    q: 'Serve para quem está começando do zero?',
+    a: 'Serve — e é especialmente útil para iniciantes. O feedback mostra o erro, explica o impacto na nota e indica o próximo ajuste. Você não precisa ser expert: a plataforma te guia desde a primeira redação.',
+  },
+  {
+    q: 'Quanto tempo até eu ver resultado?',
+    a: 'Após 3 correções, a maioria dos estudantes já identifica um padrão claro de melhoria. O segredo é consistência: cada redação corrigida aponta um passo específico para a próxima.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="logo" href="/" aria-label="NotaCerta - início">
+        <span class="logo-mark" aria-hidden="true">N</span>
+        <span>NotaCerta</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Seções principais">
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#beneficios">Benefícios</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#precos">Preços</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a class="btn btn-ghost" href="#precos">Ver planos</a>
+        <a class="btn btn-primary" href="#comecar">Testar grátis</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container" id="comecar" data-animate>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Correção de redação ENEM</span>
+          <h1>Saiba exatamente o que falta para sua redação do ENEM subir de nota</h1>
+          <p class="lead">
+            Chega de treinar sem saber se está melhorando. A NotaCerta te devolve clareza: nota estimada por competência, o que corrigir agora e um plano de evolução. <strong>Comece com 5 correções grátis — sem cartão e sem prazo.</strong>
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#precos">Receber minha primeira correção grátis</a>
+            <a class="btn btn-secondary" href="#como-funciona">Ver como funciona em 30s</a>
+          </div>
+
+          <div class="trust-row" aria-label="Provas sociais">
+            <span><strong>5 correções grátis</strong> · sem cartão</span>
+            <span><strong>+1.200 redações</strong> já corrigidas</span>
+            <span><strong>Método oficial</strong> do ENEM</span>
+          </div>
+        </div>
+
+        <aside class="card hero-panel" aria-label="Prévia do feedback">
+          <div class="score-card">
+            <div class="score-top">
+              <div>
+                <div class="score-label">Nota estimada</div>
+                <div class="score-value">880</div>
+              </div>
+              <div class="score-badge">+160 pts em 3 treinos</div>
+            </div>
+
+            <div class="bars" aria-hidden="true">
+              <div class="bar-row">
+                <div class="bar-meta"><span>C1 · Domínio da norma</span><span>160</span></div>
+                <div class="bar-track"><div class="bar-fill" style="width: 80%"></div></div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-meta"><span>C2 · Compreensão do tema</span><span>200</span></div>
+                <div class="bar-track"><div class="bar-fill" style="width: 100%"></div></div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-meta"><span>C3 · Argumentação</span><span>160</span></div>
+                <div class="bar-track"><div class="bar-fill" style="width: 80%"></div></div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-meta"><span>C5 · Proposta de intervenção</span><span>120</span></div>
+                <div class="bar-track"><div class="bar-fill" style="width: 60%"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel-note">
+            <strong>Próximo foco:</strong> detalhar agente, ação, meio, finalidade e detalhamento na proposta de intervenção — o caminho mais rápido para recuperar pontos.
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Prova social numérica">
+      <div class="container proof-strip">
+        <div class="proof-item">
+          <strong>+1.200</strong>
+          <span>redações corrigidas na plataforma</span>
+        </div>
+        <div class="proof-item">
+          <strong>5 competências</strong>
+          <span>com feedback individual e objetivo</span>
+        </div>
+        <div class="proof-item">
+          <strong>R$ 0,23</strong>
+          <span>por dia no plano anual (30% off)</span>
+        </div>
+        <div class="proof-item">
+          <strong>5 grátis</strong>
+          <span>sem cartão. Cancele quando quiser.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="beneficios" data-animate>
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Por que a NotaCerta</span>
+          <h2>Escrever mais não resolve. Saber o que corrigir, resolve.</h2>
+          <p class="lead" style="margin-inline:auto">
+            A maioria dos estudantes treina redação no escuro — escreve, entrega, recebe uma nota e não sabe o que fazer com ela. A NotaCerta quebra esse ciclo: você vê exatamente onde perdeu pontos, por quê, e o que fazer diferente na próxima.
+          </p>
+        </div>
+
+        <div class="grid-3 value-grid">
+          {
+            values.map((item) => (
+              <article class="card">
+                <div class="value-icon">{item.icon}</div>
+                <h3>{item.title}</h3>
+                <p class="muted">{item.text}</p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="como-funciona" style="padding-top:0" data-animate>
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Como funciona</span>
+          <h2>Simples o suficiente para virar hábito.</h2>
+          <p class="lead" style="margin-inline:auto">
+            Menos fricção. Mais evolução. Três passos para transformar cada redação em aprendizado real.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          {
+            steps.map((step) => (
+              <article class="card step-card">
+                <div class="step-num">{step.num}</div>
+                <h3>{step.title}</h3>
+                <p class="muted">{step.text}</p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="depoimentos" style="background: rgba(255,255,255,0.45)" data-animate>
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Depoimentos</span>
+          <h2>Quem treina com clareza sobe de nota com mais confiança.</h2>
+          <p class="lead" style="margin-inline:auto">
+            Histórias reais de quem parou de adivinhar e passou a treinar com direção.
+          </p>
+        </div>
+
+        <TestimonialCarousel />
+      </div>
+    </section>
+
+    <section class="section" id="precos" data-animate>
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Planos</span>
+          <h2>Quanto custa parar de treinar no escuro?</h2>
+          <p class="lead" style="margin-inline:auto">
+            Menos que um café por dia. Escolha seu plano, comece com as 5 correções grátis e só pague se o método fizer sentido para você.
+          </p>
+        </div>
+
+        <p class="pricing-toggle-note">
+          O plano <strong>Anual</strong> custa <strong>R$ 0,23 por dia</strong>. O <strong>Trimestral</strong> dá 15% off. O <strong>Mensal</strong> é flexível, sem fidelidade. E o <strong>Free</strong> tem 5 correções sem cartão.
+        </p>
+
+        <div class="grid-2" style="grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem;">
+          {
+            plans.map((plan) => (
+              <article class:list={['card', 'price-card', { featured: plan.featured }]}>
+                {plan.badge && <div class="price-badge">{plan.badge}</div>}
+                <div class="plan-name">{plan.name}</div>
+                <div class="plan-price">
+                  <strong>{plan.price}</strong>
+                  {plan.period && <span>{plan.period}</span>}
+        </div>
+
+        <p class="pricing-guarantee" style="text-align:center;margin-top:1.25rem;color:var(--muted);font-size:0.9rem;">
+          Cancele quando quiser, sem multa. Suas 5 correções grátis não expiram.
+        </p>
+                {plan.daily && <div class="plan-daily">{plan.daily}</div>}
+                {plan.save && <div class="save-pill">{plan.save}</div>}
+                <p class="plan-compare" set:html={plan.compare} />
+                <ul class="plan-features">
+                  {plan.features.map((f) => (
+                    <li>{f}</li>
+                  ))}
+                </ul>
+                <a class:list={['btn', plan.featured ? 'btn-primary' : 'btn-secondary']} href="#comecar">
+                  {plan.cta}
+                </a>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq" style="padding-top:0" data-animate>
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">FAQ</span>
+          <h2>Perguntas que todo estudante faz antes de começar</h2>
+        </div>
+
+        <div class="faq" style="max-width:760px;margin-inline:auto">
+          {
+            faqs.map((item) => (
+              <details>
+                <summary>{item.q}</summary>
+                <p>{item.a}</p>
+              </details>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="final-cta">
+          <div>
+            <h2>Não deixe seus pontos no ENEM escaparem por falta de treino com direção.</h2>
+            <p>
+              Cada redação que você escreve sem saber o que melhorar é uma oportunidade perdida. Comece agora com as 5 correções grátis, veja sua primeira nota em minutos e decida se o plano faz sentido. Sem pressão, sem cartão.
+            </p>
+          </div>
+          <div style="display:grid;gap:0.75rem">
+            <a class="btn btn-primary" href="#precos">Quero minhas 5 correções grátis</a>
+            <a class="btn btn-secondary" href="#precos">Ver planos e descontos</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="logo">
+        <span class="logo-mark" aria-hidden="true">N</span>
+        <span>NotaCerta</span>
+      </div>
+      <p>© {new Date().getFullYear()} NotaCerta · Correção de redação ENEM com clareza e método.</p>
+      <nav aria-label="Rodapé" style="display:flex;gap:1rem">
+        <a href="#precos">Preços</a>
+        <a href="#faq">FAQ</a>
+        <a href="#comecar">Começar</a>
+      </nav>
+    </div>
+  </footer>
+</BaseLayout>
+
+<style>
+  @media (max-width: 1100px) {
+    #precos .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+  }
+
+  @media (max-width: 700px) {
+    #precos .grid-2 {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    [data-animate] {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const animated = document.querySelectorAll('[data-animate]');
+    if (!animated.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
+    );
+
+    animated.forEach((el) => observer.observe(el));
+  });
+</script>
