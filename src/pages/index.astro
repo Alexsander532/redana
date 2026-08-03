@@ -152,21 +152,21 @@ const faqs = [
   <header class="site-header">
     <div class="container nav">
       <a class="logo" href="/" aria-label="Redana - início">
-        <span class="logo-mark" aria-hidden="true">N</span>
+        <span class="logo-mark" aria-hidden="true"><img src="/brand/icone-light.png" alt="" width="38" height="38" /></span>
         <span>Redana</span>
       </a>
 
       <nav class="nav-links" aria-label="Seções principais">
+        <a href="#recursos">Recursos</a>
         <a href="#como-funciona">Como funciona</a>
-        <a href="#beneficios">Benefícios</a>
-        <a href="#depoimentos">Depoimentos</a>
         <a href="#precos">Preços</a>
-        <a href="#faq">FAQ</a>
+        <a href="#escolas">Para escolas</a>
+        <a href="#blog">Blog</a>
       </nav>
 
       <div class="nav-cta">
-        <a class="btn btn-ghost" href="#precos">Ver planos</a>
-        <a class="btn btn-primary" href="#comecar">Testar grátis</a>
+        <a class="btn btn-ghost" href="#entrar">Entrar</a>
+        <a class="btn btn-primary" href="#comecar">Começar agora</a>
       </div>
     </div>
   </header>
@@ -175,58 +175,164 @@ const faqs = [
     <section class="hero container" id="comecar" data-animate>
       <div class="hero-grid">
         <div class="hero-copy">
-          <span class="eyebrow">Correção de redação ENEM</span>
-          <h1>Saiba exatamente o que falta para sua redação do ENEM subir de nota</h1>
-          <p class="lead">
-            Chega de treinar sem saber se está melhorando. A Redana te devolve clareza: nota estimada por competência, o que corrigir agora e um plano de evolução. <strong>Comece com 5 correções grátis — sem cartão e sem prazo.</strong>
+          <span class="hero-eyebrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6L12 3z"/>
+              <path d="M19 14l.8 2.2L22 17l-2.2.8L19 20l-.8-2.2L16 17l2.2-.8L19 14z"/>
+              <path d="M5 15l.6 1.7L7 17l-1.4.3L5 19l-.6-1.7L3 17l1.4-.3L5 15z"/>
+            </svg>
+            Correção inteligente de redações com IA
+          </span>
+          <h1>Sua melhor redação, com <span class="accent">inteligência.</span></h1>
+          <p class="hero-sub">
+            A Redana corrige, analisa e dá feedbacks detalhados para você evoluir em cada competência do ENEM.
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#precos">Receber minha primeira correção grátis</a>
-            <a class="btn btn-secondary" href="#como-funciona">Ver como funciona em 30s</a>
+            <a class="btn btn-primary" href="#comecar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6L12 3z"/>
+              </svg>
+              Começar agora
+            </a>
+            <a class="btn btn-secondary" href="#como-funciona">
+              <span class="play" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </span>
+              Ver como funciona
+            </a>
           </div>
 
-          <div class="trust-row" aria-label="Provas sociais">
-            <span><strong>5 correções grátis</strong> · sem cartão</span>
-            <span><strong>+1.200 redações</strong> já corrigidas</span>
-            <span><strong>Método oficial</strong> do ENEM</span>
-          </div>
+          <ul class="hero-features" aria-label="Diferenciais rápidos">
+            <li class="hero-feature">
+              <span class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+              </span>
+              <span><strong>Correção em</strong>segundos</span>
+            </li>
+            <li class="hero-feature">
+              <span class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+              </span>
+              <span><strong>Feedbacks claros</strong>e objetivos</span>
+            </li>
+            <li class="hero-feature">
+              <span class="icon bar-chart" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/></svg>
+              </span>
+              <span><strong>Evolução garantida</strong>competência por competência</span>
+            </li>
+          </ul>
         </div>
 
-        <aside class="card hero-panel" aria-label="Prévia do feedback">
-          <div class="score-card">
-            <div class="score-top">
-              <div>
-                <div class="score-label">Nota estimada</div>
-                <div class="score-value">880</div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-mascot">
+            <img src="/mascot.png" alt="" width="480" height="620" loading="eager" />
+          </div>
+
+          <div class="score-card" role="figure" aria-label="Exemplo de nota estimada 920, Excelente!">
+            <div class="row1">
+              <div class="value-block">
+                <div class="label">Nota estimada</div>
+                <div class="value">920</div>
               </div>
-              <div class="score-badge">+160 pts em 3 treinos</div>
+              <span class="pill">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 2l2.6 6.4L21 9l-5 4.6L17.4 21 12 17.6 6.6 21 8 13.6 3 9l6.4-.6L12 2z"/>
+                </svg>
+                Excelente!
+              </span>
+            </div>
+            <p class="caption">Parabéns! Você está entre os melhores.</p>
+
+            <div class="bars">
+              <div class="bar-row">
+                <div class="meta"><span class="meta-name">Competência I</span></div>
+                <div class="score">180 <em>/ 200</em></div>
+                <div class="bar-track"><div class="bar-fill" style="width:90%"></div></div>
+              </div>
+              <div class="bar-row">
+                <div class="meta"><span class="meta-name">Competência II</span></div>
+                <div class="score">200 <em>/ 200</em></div>
+                <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+              </div>
+              <div class="bar-row">
+                <div class="meta"><span class="meta-name">Competência III</span></div>
+                <div class="score">180 <em>/ 200</em></div>
+                <div class="bar-track"><div class="bar-fill" style="width:90%"></div></div>
+              </div>
+              <div class="bar-row">
+                <div class="meta"><span class="meta-name">Competência IV</span></div>
+                <div class="score">180 <em>/ 200</em></div>
+                <div class="bar-track"><div class="bar-fill" style="width:90%"></div></div>
+              </div>
+              <div class="bar-row">
+                <div class="meta"><span class="meta-name">Competência V</span></div>
+                <div class="score">180 <em>/ 200</em></div>
+                <div class="bar-track"><div class="bar-fill" style="width:90%"></div></div>
+              </div>
             </div>
 
-            <div class="bars" aria-hidden="true">
-              <div class="bar-row">
-                <div class="bar-meta"><span>C1 · Domínio da norma</span><span>160</span></div>
-                <div class="bar-track"><div class="bar-fill" style="width: 80%"></div></div>
-              </div>
-              <div class="bar-row">
-                <div class="bar-meta"><span>C2 · Compreensão do tema</span><span>200</span></div>
-                <div class="bar-track"><div class="bar-fill" style="width: 100%"></div></div>
-              </div>
-              <div class="bar-row">
-                <div class="bar-meta"><span>C3 · Argumentação</span><span>160</span></div>
-                <div class="bar-track"><div class="bar-fill" style="width: 80%"></div></div>
-              </div>
-              <div class="bar-row">
-                <div class="bar-meta"><span>C5 · Proposta de intervenção</span><span>120</span></div>
-                <div class="bar-track"><div class="bar-fill" style="width: 60%"></div></div>
+            <div class="footer">
+              <span class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M8 21h8"/>
+                  <path d="M12 17v4"/>
+                  <path d="M5 4h14v3a7 7 0 01-14 0V4z"/>
+                  <path d="M19 5h2v2a4 4 0 01-4 4"/>
+                  <path d="M5 5H3v2a4 4 0 004 4"/>
+                </svg>
+              </span>
+              <div class="footer-text">
+                <strong>Excelente trabalho!</strong>
+                Continue assim e alcance sua melhor versão.
               </div>
             </div>
           </div>
+        </div>
+      </div>
 
-          <div class="panel-note">
-            <strong>Próximo foco:</strong> detalhar agente, ação, meio, finalidade e detalhamento na proposta de intervenção — o caminho mais rápido para recuperar pontos.
-          </div>
-        </aside>
+      <div class="hero-stats" aria-label="Prova social numérica">
+        <div class="hero-stat">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="9" cy="8" r="3.2"/>
+              <path d="M3 20c.6-3.4 3.1-5.4 6-5.4s5.4 2 6 5.4"/>
+              <circle cx="17" cy="9" r="2.6"/>
+              <path d="M14 20c.5-2.6 1.7-4.2 3-4.8"/>
+            </svg>
+          </span>
+          <div class="info"><strong>+50.000</strong><span>estudantes já evoluíram</span></div>
+        </div>
+        <div class="hero-stat">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="3" width="14" height="18" rx="2"/>
+              <path d="M8 8h6M8 12h6M8 16h4"/>
+              <path d="M18 7h2v12a2 2 0 01-2 2"/>
+            </svg>
+          </span>
+          <div class="info"><strong>+200.000</strong><span>redações corrigidas</span></div>
+        </div>
+        <div class="hero-stat">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.6 6.1 20.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5z"/>
+            </svg>
+          </span>
+          <div class="info"><strong>4.9/5</strong><span>avaliação dos usuários</span></div>
+        </div>
+        <div class="hero-stat">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="5" y="11" width="14" height="9" rx="2"/>
+              <path d="M8 11V8a4 4 0 018 0v3"/>
+              <circle cx="12" cy="15.5" r="1.2"/>
+              <path d="M12 16.7v1.6"/>
+            </svg>
+          </span>
+          <div class="info"><strong>Seus dados</strong><span>sempre protegidos</span></div>
+        </div>
       </div>
     </section>
 
@@ -400,7 +506,7 @@ const faqs = [
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="logo">
-        <span class="logo-mark" aria-hidden="true">N</span>
+        <span class="logo-mark" aria-hidden="true"><img src="/brand/icone-light.png" alt="" width="38" height="38" /></span>
         <span>Redana</span>
       </div>
       <p>© {new Date().getFullYear()} Redana · Correção de redação ENEM com clareza e método.</p>
